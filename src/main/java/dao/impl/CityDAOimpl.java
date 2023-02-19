@@ -3,6 +3,7 @@ package dao.impl;
 import config.HibernateSessionFactoryUtil;
 import dao.CityDAO;
 import model.City;
+import model.Employee;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -76,10 +77,10 @@ public class CityDAOimpl implements CityDAO {
 
     @Override
     public List<City> readAll() {
-        List<City> cityList =
-                (List<City>) HibernateSessionFactoryUtil.getSessionFactory()
-                        .openSession()
-                        .createQuery("From City ").list();
-        return cityList;
+        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+                return (List<City>)session.createQuery("From City ").list();
+
+        }
+
     }
 }
