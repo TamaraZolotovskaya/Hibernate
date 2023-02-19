@@ -19,19 +19,21 @@ public class Employee {
     private String gender;
     @Column
     private int age;
-    @Column(name = "city_id")
-    private int city;
+
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
 
     public Employee() {
     }
 
-    public Employee(int id, String firstName, String lastName, String gender, int age, int city) {
+    public Employee(int id, String firstName, String lastName, String gender, int age, City city) {
         this(firstName, lastName, gender, age, city);
         this.id = id;
 
     }
 
-    public Employee(String firstName, String lastName, String gender, int age, int city) {
+    public Employee(String firstName, String lastName, String gender, int age, City city) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -79,11 +81,11 @@ public class Employee {
         this.age = age;
     }
 
-    public int getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(int city) {
+    public void setCity(City city) {
         this.city = city;
     }
 
@@ -92,7 +94,7 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return id == employee.id && age == employee.age && city == employee.city && firstName.equals(employee.firstName) && lastName.equals(employee.lastName) && gender.equals(employee.gender);
+        return id == employee.id && age == employee.age && firstName.equals(employee.firstName) && lastName.equals(employee.lastName) && gender.equals(employee.gender) && Objects.equals(city, employee.city);
     }
 
     @Override
