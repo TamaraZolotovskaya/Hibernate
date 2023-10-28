@@ -15,7 +15,7 @@ public class Application {
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         CityDAO cityDAO = new CityDAOimpl();
 
-        City tomsk = new City(1, "Tomsk");
+        City tomsk = new City(1, "Omsk");
         Employee employeeNew = new Employee("John", "Doe", "male", 57, tomsk);
 
         Optional<Employee> employeeNewWithId = employeeDAO.create(employeeNew);
