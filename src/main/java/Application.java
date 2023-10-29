@@ -17,8 +17,6 @@ public class Application {
 
         City tomsk = new City(4, "Omsk7");
         Employee employeeNew = new Employee("John", "Smith", "male", 57, tomsk);
-        City tomsk = new City(2, "Omsk8");
-        Employee employeeNew = new Employee("John", "Smith", "male", 7, tomsk);
 
         Optional<Employee> employeeNewWithId = employeeDAO.create(employeeNew);
         System.out.println(employeeNewWithId.orElse(employeeNew));
