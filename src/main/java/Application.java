@@ -17,6 +17,8 @@ public class Application {
 
         City tomsk = new City(4, "Omsk7");
         Employee employeeNew = new Employee("John", "Smith", "male", 57, tomsk);
+        City tomsk = new City(2, "Omsk8");
+        Employee employeeNew = new Employee("John", "Smith", "male", 7, tomsk);
 
         Optional<Employee> employeeNewWithId = employeeDAO.create(employeeNew);
         System.out.println(employeeNewWithId.orElse(employeeNew));
@@ -51,7 +53,7 @@ public class Application {
 
         //Проверяю работу полной каскадности
 
-        City moscow = new City(2, "Moscow2");
+        City moscow = new City(2, "Mos");
         Optional<City> moskowWithId = cityDAO.create(moscow);
         Employee test = new Employee("test", "test", "male", 39, moscow);
         Optional<Employee> testWithId = employeeDAO.create(test);
