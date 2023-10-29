@@ -15,8 +15,9 @@ public class Application {
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         CityDAO cityDAO = new CityDAOimpl();
 
-        City tomsk = new City(4, "Oms");
-        Employee employeeNew = new Employee("John", "Smith", "male", 57, tomsk);
+
+        City tomsk = new City(4, "Om");
+      Employee employeeNew = new Employee("John", "Smith", "male", 57, tomsk);
 
         Optional<Employee> employeeNewWithId = employeeDAO.create(employeeNew);
         System.out.println(employeeNewWithId.orElse(employeeNew));
